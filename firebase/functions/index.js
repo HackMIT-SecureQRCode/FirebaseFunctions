@@ -43,8 +43,9 @@ app2.post("*", (req, res) => {
     text = req.body.text
 
     admin.database().ref(`/users/${uID}`).once('value').then(snap => {
-        const val = snap.val();
-        res.send(val)
+        const val = snap.val()
+        console.log(val)
+        res.status(200).send(snap.val())
 
     })
 })
